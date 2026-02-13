@@ -14,7 +14,14 @@ export const personal = {
   ],
 }
 
-export const projects = [
+export const projects : {
+  name: string
+  year: string
+  href: string | null
+  desc: string
+  tags: string[]
+  private?: boolean
+}[] = [
   {
     name: 'HealthMate',
     year: '2024',
@@ -42,7 +49,7 @@ export const projects = [
   {
     name: 'Portfolio Site',
     year: '2026',
-    href: 'https://github.com/andrewsalazar538', // update with real link
+    href: 'https://github.com/aasalaz2/my-portfolio',
     desc: 'This site — built with Next.js and Tailwind CSS from scratch.',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     private: false,
