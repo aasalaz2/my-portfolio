@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Andrew Salazar — Portfolio
 
-## Getting Started
+Inspired by [adarsha.dev](https://adarsha.dev). Built with **Next.js 15**, **Tailwind CSS**, and **Geist** font.
 
-First, run the development server:
+## Setup
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## File Structure
 
-## Learn More
+```
+app/
+  layout.tsx        ← Root layout + Geist font setup
+  page.tsx          ← Main page
+  globals.css       ← Tailwind base + global styles
 
-To learn more about Next.js, take a look at the following resources:
+components/
+  Nav.tsx           ← Sticky top nav with social icons
+  Hero.tsx          ← Intro section with avatar + prose
+  Projects.tsx      ← Project list
+  Skills.tsx        ← Skills grouped by category
+  Experience.tsx    ← Work & education timeline
+  Footer.tsx        ← Footer with contact info
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+lib/
+  data.ts           ← ⭐ Edit all your content here
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**All content lives in `lib/data.ts`** — update your name, bio, projects, skills, and experience there.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Adding your photo
+1. Add your photo to `/public/avatar.jpg`
+2. In `components/Hero.tsx`, replace the initials `<div>` with:
+```tsx
+<Image src="/avatar.jpg" alt="Andrew Salazar" width={64} height={64} className="rounded-full" />
+```
+
+### Updating project GitHub links
+In `lib/data.ts`, find the `projects` array and update the `href` fields with real repo URLs.
+
+### Adding LinkedIn
+Update the `linkedin` field in `lib/data.ts` and update the LinkedIn href in `components/Nav.tsx`.
+
+---
+
+## Deploy
+
+Push to GitHub and connect to [Vercel](https://vercel.com) for instant deployment.
